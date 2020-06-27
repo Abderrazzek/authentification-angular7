@@ -1,3 +1,5 @@
+import { AppComponent } from "./app.component";
+import { AuthGuard } from "./modules/auth/auth.guard";
 import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 
@@ -7,8 +9,14 @@ const routes: Routes = [
     loadChildren: "./modules/auth/auth.module#AuthModule"
   },
   {
+    path: "",
+    component: AppComponent,
+    canActivate: [AuthGuard]
+  },
+  {
     path: "cabinet",
-    loadChildren: "./modules/cabinet/cabinet.module#CabinetModule"
+    loadChildren: "./modules/bookings/bookings.module#BookingsModule",
+    canActivate: [AuthGuard]
   }
 ];
 

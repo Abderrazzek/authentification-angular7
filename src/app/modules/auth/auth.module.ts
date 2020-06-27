@@ -1,15 +1,22 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { AuthService } from "./auth.service";
+import { LoadingSpinnerComponent } from "./loading-spinner/loading-spinner.component";
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 
-import { AuthRoutingModule } from './auth-routing.module';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { AuthRoutingModule } from "./auth-routing.module";
+
+import { SignupComponent } from "./pages/signup/signup.component";
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent],
+  declarations: [SignupComponent, LoadingSpinnerComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    FormsModule,
+    AuthRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ]
 })
-export class AuthModule { }
+export class AuthModule {}
